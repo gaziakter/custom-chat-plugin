@@ -21,3 +21,20 @@ function custom_chat_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'custom_chat_enqueue_scripts');
+
+
+
+
+
+function custom_chat_send_message() {
+    $message = sanitize_text_field($_POST['message']);
+
+    // Add your custom logic to process and save the message
+
+    echo json_encode(array('status' => 'success', 'message' => $message));
+    wp_die();
+}
+
+add_action('wp_ajax_custom_chat_send_message', 'custom_chat_send_message');
+add_action('wp_ajax_nopriv_custom_chat_send_message', 'custom_chat_send_message');
+

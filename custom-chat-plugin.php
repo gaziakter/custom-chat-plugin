@@ -24,8 +24,7 @@ add_action('wp_enqueue_scripts', 'custom_chat_enqueue_scripts');
 
 
 
-
-
+//sent message 
 function custom_chat_send_message() {
     $message = sanitize_text_field($_POST['message']);
 
@@ -37,4 +36,12 @@ function custom_chat_send_message() {
 
 add_action('wp_ajax_custom_chat_send_message', 'custom_chat_send_message');
 add_action('wp_ajax_nopriv_custom_chat_send_message', 'custom_chat_send_message');
+
+
+//display content 
+<form id="chat-form">
+    <input type="text" id="chat-message" placeholder="Type your message...">
+    <input type="submit" value="Send">
+</form>
+
 
